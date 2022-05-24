@@ -16,8 +16,9 @@ export default function Home() {
     <div className="h-screen w-screen bg-[#FAFAFA]">
       <nav className="bg-white px-[20px] h-[60px] flex flex-row items-center justify-between border-[1px]" >
         <span id="logo" className="font-['instagram-font'] text-2xl">Isaacgram</span>
-        <div id="searchBarCapsule" className="rounded-lg bg-[#EFEFEF] p-2">
-          <input id="searchBar" type="text" className="bg-[#EFEFEF]" placeholder="Search" />
+        <div id="searchBarCapsule" className="flex items-center rounded-lg bg-[#EFEFEF] p-2">
+        <svg aria-label="Search" color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewBox="0 0 24 24" width="16"><path d="M19 10.5A8.5 8.5 0 1110.5 2a8.5 8.5 0 018.5 8.5z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line></svg>
+          <input id="searchBar" type="text" className="ml-3 bg-[#EFEFEF]" placeholder="Search" />
         </div>
         <div id="navButtonsContainer" className="flex items-stretch w-[278px]">
           {/*icon svgs copy pasted from instagram site*/}
