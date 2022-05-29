@@ -8,7 +8,7 @@ export default function Home() {
     alert('coming soon!')
   }
   return (
-    <div className="h-screen w-screen bg-[#FAFAFA]">
+    <div className="border h-max w-screen bg-[#FAFAFA] mx-auto sm:max-w-4xl drop-shadow-xl">
       <nav className="bg-white px-[20px] h-[60px] flex flex-row items-center justify-between border-[1px]" >
         <span id="logo" className="font-['instagram-font'] text-2xl">Isaacgram</span>
         <div id="searchBarCapsule" className="hidden sm:flex items-center rounded-lg bg-[#EFEFEF] p-2">
@@ -39,7 +39,7 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      <header className="m-[16px] mb-[24px]">
+      <header className="m-6 sm:mb-16">
         <div id="profile" className="grid grid-cols-4">
           <div id="imageSection" className="sm:row-span-2 flex items-center justify-center">
             <img src="https://avatars.githubusercontent.com/isaacdigs" className="rounded-full w-[77px] h-[77px] sm:h-[150px] sm:w-[150px] border" alt="main profile" />
@@ -68,9 +68,38 @@ export default function Home() {
       <section id="highlights" className="flex mt-5 ml-7">
         <Highlight src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML5" caption="HTML5" />
         <Highlight src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS3" caption="CSS3" />
-        <Highlight src="" alt="" caption="" />
-        <Highlight src="" alt="" caption="" />
-        <Highlight src="" alt="" caption="" />
+        <Highlight src="https://upload.wikimedia.org/wikipedia/commons/7/73/Javascript-736400_960_720.png" alt="Javascript" caption="Javascript" />
+        <Highlight src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" caption="React" />
+        <Highlight src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" alt="Vue" caption="Vuejs" />
+        <Highlight src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind" caption="Tailwind" />
+      </section>
+      <section id="projects" className="flex flex-col mt-5 mx-7">
+        <div id="toggler" className="h-12 border-y-2 my-3 flex flex-row sm:flex-row sm:justify-between w-full">
+          <button className="w-1/3">projects</button>
+          <button className="w-1/3">bio</button>
+          <button className="w-1/3">links</button>
+        </div>
+        <div id="projectContainer" className="w-full grid grid-cols-3 sm:mb-24 mb-96">
+          {/*Eventually make this a seperate component*/}
+          <div className="bg-slate-100 aspect-square m-1">
+            <p>Project 1</p>
+          </div>
+          <div className="bg-slate-200 aspect-square m-1">
+            <p>Project 2</p>
+          </div>
+          <div className="bg-slate-300 aspect-square m-1">
+            <p>Project 3</p>
+          </div>
+          <div className="bg-slate-400 aspect-square m-1">
+            <p>Project 4</p>
+          </div>
+          <div className="bg-slate-500 aspect-square m-1">
+            <p>Project 5</p>
+          </div>
+          <div className="bg-slate-600 aspect-square m-1">
+            <p>Project 6</p>
+          </div>
+        </div>
       </section>
     </div>
   )
