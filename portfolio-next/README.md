@@ -1,3 +1,16 @@
+# Portfolio built with Next.js
+
+## Things to work on:
+- Work on modal popup: for project & message
+- Work on the project component: onClick and modal pop up.
+- Work on Highlight full page view (possibly seperate page)
+- Work on the SVGs (home, message, darkmode, like)
+- Populate with content: projects, bio, links
+- Deploy
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

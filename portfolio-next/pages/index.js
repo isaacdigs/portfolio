@@ -2,8 +2,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Highlight from '../components/Highlight'
+import React, { useState } from 'react'
+import Modal from '../components/Modal'
+import Project from '../components/Project'
 
 export default function Home() {
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const handleModalToggle = () => setModalOpen(!modalOpen);
+
   const comingSoon = () => {
     alert('coming soon!')
   }
@@ -77,7 +83,7 @@ export default function Home() {
         <div id="toggler" className="h-12 border-y-2 my-3 flex flex-row sm:flex-row sm:justify-between w-full">
           <button className="w-1/3">projects</button>
           <button className="w-1/3">bio</button>
-          <button className="w-1/3">links</button>
+          <button className="w-1/3" onClick={handleModalToggle}>modal</button>
         </div>
         <div id="projectContainer" className="w-full grid grid-cols-3 sm:mb-24 mb-96">
           {/*Eventually make this a seperate component*/}
@@ -99,8 +105,10 @@ export default function Home() {
           <div className="bg-slate-600 aspect-square m-1">
             <p>Project 6</p>
           </div>
+          <Project projectName="React" projectImg="https://picsum.photos/200"/>
         </div>
       </section>
+      <Modal handleModalToggle={handleModalToggle} modalOpen={modalOpen} taglist={['React', 'Tailwind', 'NextJS']} />
     </div>
   )
 }
