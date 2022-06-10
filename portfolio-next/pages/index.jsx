@@ -5,16 +5,24 @@ import Highlight from '../components/Highlight'
 import React, { useState } from 'react'
 import Modal from '../components/Modal'
 import Project from '../components/Project'
+import db from '../components/db'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = React.useState(false);
-  const handleModalToggle = () => setModalOpen(!modalOpen);
+  const [modalContent, setModalContent] = React.useState({});
+  const handleModalToggle = (projectIndex) => {
+    setModalContent(db[projectIndex]);
+    setModalOpen(!modalOpen)
+  }
+  const database = db;
 
   const comingSoon = () => {
     alert('coming soon!')
   }
   return (
     <div className="border h-max w-screen bg-[#FAFAFA] mx-auto sm:max-w-4xl drop-shadow-xl">
+
+      {/* Navbar section */}
       <nav className="bg-white px-[20px] h-[60px] flex flex-row items-center justify-between border-[1px]" >
         <span id="logo" className="font-['instagram-font'] text-2xl">Isaacgram</span>
         <div id="searchBarCapsule" className="hidden sm:flex items-center rounded-lg bg-[#EFEFEF] p-2">
@@ -45,6 +53,8 @@ export default function Home() {
           </div>
         </div>
       </nav>
+
+      {/*Header Section*/}
       <header className="m-6 sm:mb-16">
         <div id="profile" className="grid grid-cols-4">
           <div id="imageSection" className="sm:row-span-2 flex items-center justify-center">
@@ -71,6 +81,8 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      {/*Highlight Section*/}
       <section id="highlights" className="flex mt-5 ml-7">
         <Highlight src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML5" caption="HTML5" />
         <Highlight src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS3" caption="CSS3" />
@@ -79,36 +91,25 @@ export default function Home() {
         <Highlight src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" alt="Vue" caption="Vuejs" />
         <Highlight src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind" caption="Tailwind" />
       </section>
+
+      {/*Project Section*/}
       <section id="projects" className="flex flex-col mt-5 mx-7">
+
+        {/*Tab section*/}
         <div id="toggler" className="h-12 border-y-2 my-3 flex flex-row sm:flex-row sm:justify-between w-full">
           <button className="w-1/3">projects</button>
           <button className="w-1/3">bio</button>
           <button className="w-1/3" onClick={handleModalToggle}>modal</button>
         </div>
+
+        {/* Project Grid */}
         <div id="projectContainer" className="w-full grid grid-cols-3 sm:mb-24 mb-96">
-          {/*Eventually make this a seperate component*/}
-          <div className="bg-slate-100 aspect-square m-1">
-            <p>Project 1</p>
-          </div>
-          <div className="bg-slate-200 aspect-square m-1">
-            <p>Project 2</p>
-          </div>
-          <div className="bg-slate-300 aspect-square m-1">
-            <p>Project 3</p>
-          </div>
-          <div className="bg-slate-400 aspect-square m-1">
-            <p>Project 4</p>
-          </div>
-          <div className="bg-slate-500 aspect-square m-1">
-            <p>Project 5</p>
-          </div>
-          <div className="bg-slate-600 aspect-square m-1">
-            <p>Project 6</p>
-          </div>
-          <Project projectName="React" projectImg="https://picsum.photos/200"/>
+          <Project projectIndex={db[0].index} projectName={db[0].title} handleModalToggle={handleModalToggle}/>
         </div>
       </section>
-      <Modal handleModalToggle={handleModalToggle} modalOpen={modalOpen} taglist={['React', 'Tailwind', 'NextJS']} />
+
+      {/*Hidden Modal*/}
+      <Modal handleModalToggle={handleModalToggle} modalOpen={modalOpen} taglist={modalContent.tags} />
     </div>
   )
 }
